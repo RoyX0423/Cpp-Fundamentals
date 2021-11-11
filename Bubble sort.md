@@ -1,5 +1,5 @@
 # Cpp-random-prac
-some basic prac code
+Bubble sort
 
 #include <iostream>
 using namespace std;
