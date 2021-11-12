@@ -1,0 +1,130 @@
+#include <iostream>
+using namespace std;
+//Ideas:
+//pick a pivot,median is preferable bc less time taken to sort array in position, but process time taken to find the median
+// say if we pick last element as the pivot
+//partitioning the array by use of i and j(two pointers),j is used to scan through the array all the way up to second last element
+//every time element at j is less than pivot, we swap element at i with element at j
+//when For loop(loop couter is j) is terminated, the i value is the position that pivot should be inserted
+
+//Within the quicksort subroutine,we partition first, then recursively call sublists on LHS and on RHS of the pivot
+//since values on LHS are less than Pivot value but they might not in correct order, similar idea for RHS
+//so recursion takes places to divide n conquer the problem
+
+
+
+
+void swap(int* a, int* b) {
+	int t = *a;
+	*a = *b;
+	*b = t;
+
+//swap the value pointed by *a and *b
+
+}
+
+
+int partition(int num[], int low, int high) {
+	//pick the last element as the pivot
+	int pivot = num[high];
+	int i = low;
+
+	//scan through array elements up to the element before last one
+	//find the correct position of the pivot
+
+	for (int j = low; j < high; j++) {
+		if (num[j] < pivot) {
+			
+			swap(&num[i], &num[j]);
+			i++;
+		}
+		
+	}
+	//sort pivot in position
+	swap(&num[high], &num[i]);
+
+	return (i);
+
+
+
+
+
+
+
+
+
+
+
+}
+
+
+
+
+
+void QuickSort(int num[],int low,int high) {
+	if (low < high){
+		int pivposition = partition(num, low, high);
+
+		//after pivot sorted in position, the lower half are all less than pivot
+		//upper half all greater than pivot
+		//we just need to recursively sort the two sublist using the same methods
+
+			QuickSort(num, low, pivposition - 1);
+			QuickSort(num, pivposition + 1, high);
+
+	
+	
+	
+	
+	
+	}
+
+	
+
+
+
+}
+
+
+void display(int num[]) {
+	for (int i = 0; i < 10; i++) {
+	
+		cout << num[i] << endl;
+
+	
+	
+	}
+
+
+
+
+
+}
+
+
+
+int main()
+{
+	int num[10] = { 87,22,31,56,11,9,31,78,99,3 };
+
+	cout << "before sorting:\n";
+	display(num);
+
+	cout << "after sorting：\n";
+	QuickSort(num, 0, 9);
+	display(num);
+
+
+
+
+	
+
+	
+
+	system("pause>0");
+}
+
+
+
+
+
