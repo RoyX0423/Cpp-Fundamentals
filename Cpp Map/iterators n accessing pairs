@@ -1,0 +1,92 @@
+#include <iostream>
+#include<map>
+using namespace std;
+
+
+void stringtest() {
+	string test;
+	test = "Hi, my name is Roy.This is a string test.";
+
+	map<char, int>freqTable;
+	
+	for (int i = 0; i < test.length(); i++) {
+		char letter = test[i];
+
+		//if this letter isnt in the table,frq set to 0
+		if (freqTable.find(letter) == freqTable.end()) {
+			freqTable[letter] = 1;
+
+
+		
+		}
+		// if already exsit then increment the frequecy
+		else {
+			freqTable[letter]++;
+
+		}
+	
+	
+	}
+	//print the map out
+	for (auto itr = freqTable.begin(); itr != freqTable.end(); itr++) {
+		cout << (*itr).first << " " << (*itr).second << endl;
+
+	}
+
+
+
+
+
+}
+
+
+
+int main()
+{
+	//setting up a map storing the roman symbols n corresponding integer values
+	//symbols are the keys to access the map elements
+	map<char, int>mp = {
+		{'I',1},
+		{'V',5},
+		{'X',10},
+		{'L',50},
+		{'C',100},
+		{'D',500},
+		{'M',1000},
+
+	};
+
+	//accessing elements of the map
+	//it++ so iterator points to the next pair
+	for (auto it = mp.begin(); it != mp.end(); it++) {
+		//if to access the elements, we need to dereference the iterator
+		cout << (*it).first << " " << (*it).second << endl;
+
+		//(*it)is to access the value pointed by it
+		//(&it) represents the address of it
+
+	}
+
+	stringtest();
+
+	
+	
+
+
+
+
+
+
+
+
+
+
+	
+
+	system("pause>0");
+}
+
+
+
+
+
