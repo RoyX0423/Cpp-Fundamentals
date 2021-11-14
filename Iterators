@@ -8,6 +8,7 @@ vector<int>nums;
 nums.begin() returns an iterator object pointing to first element in nums
 nums.end() returns an iterator object pointing to the next element of last element in nums(which is already out of range)
 nums.erase(iterator) erases the element pointed by iterator ANDALSO return the next valid iterator
+Vector<int>::iterator i=nums.begin(); an example of declaration of an iterator
 
 ##Note:when we try to delete element pointed by iterators in a FOR loop, where iterator is auto incremented after each iteration,here is an issue:
 After calling erase(iterator), this iterator is invalidated, that means you cannot increment/decrement/read n write it, it no longer belongs to the container
