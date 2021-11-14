@@ -16,9 +16,9 @@ so the FOR loop incrementation will fail to work
 the way to resolve this is iterator=erase(iterator); bc the next valid iterator can be returned
 
 code:
-#include <iostream>
-
+##include <iostream>
 #include<vector>
+
 
 
 using namespace std;
@@ -31,28 +31,35 @@ using namespace std;
 int main()
 {
 
-	vector<int>num = {0,1,0,3,12,0,1,0,3,12};
+	vector<int> num = {0,1,0,3,12,0,1,0,3,12};
 	int count = 0;
+	vector<int>::iterator i = num.begin();
 
 
-	
-	for (auto i = num.begin(); i!= num.end();i++) {
+	//after calling the erase, original i is invalided, which mean its unable to be read or write
+			//erase function will return the next valid iterator i to be used
+
+	while (i != num.end()) {
 		if (*i == 0) {
 			count++;
+			i = num.erase(i);
 
-
-			//after calling the erase, original i is invalided, which mean its unable to be read or write
-			//erase function will return the next valid iterator i to be used
-			i=num.erase(i);
-
-				
-
-		
 		
 		
 		}
+		else {
+			i++;
+		}
 	}
 
+
+
+
+	
+	
+
+
+			
 	if (count != 0) {
 		for (int a = 0; a < count; a++) {
 			num.push_back(0);
@@ -77,6 +84,9 @@ int main()
 	
 
 }
+
+
+
 
 
 
