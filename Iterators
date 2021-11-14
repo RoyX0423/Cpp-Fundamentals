@@ -1,0 +1,89 @@
+Iterators are normally used to traverse through a collection, bc some data structures like set/tree don't really have a particular order. So iterators are helpful in traversal of these structures.
+
+Iterator is an object
+
+suppose:
+vector<int>nums;
+
+nums.begin() returns an iterator object pointing to first element in nums
+nums.end() returns an iterator object pointing to the next element of last element in nums(which is already out of range)
+nums.erase(iterator) erases the element pointed by iterator ANDALSO return the next valid iterator
+
+##Note:when we try to delete element pointed by iterators in a FOR loop, where iterator is auto incremented after each iteration,here is an issue:
+After calling erase(iterator), this iterator is invalidated, that means you cannot increment/decrement/read n write it, it no longer belongs to the container
+so the FOR loop incrementation will fail to work
+the way to resolve this is iterator=erase(iterator); bc the next valid iterator can be returned
+
+code:
+#include <iostream>
+
+#include<vector>
+
+
+using namespace std;
+
+
+
+
+
+
+int main()
+{
+
+	vector<int>num = {0,1,0,3,12,0,1,0,3,12};
+	int count = 0;
+
+
+	
+	for (auto i = num.begin(); i!= num.end();i++) {
+		if (*i == 0) {
+			count++;
+
+
+			//after calling the erase, original i is invalided, which mean its unable to be read or write
+			//erase function will return the next valid iterator i to be used
+			i=num.erase(i);
+
+				
+
+		
+		
+		
+		}
+	}
+
+	if (count != 0) {
+		for (int a = 0; a < count; a++) {
+			num.push_back(0);
+		
+		
+		}
+	
+	
+	
+	}
+
+	for (auto u=num.begin(); u!=num.end(); u++) {
+	
+		cout << *u << endl;
+
+	}
+
+
+
+
+	
+	
+
+}
+
+
+
+
+
+
+
+
+
+
+
