@@ -1,0 +1,9 @@
+string a;
+
+a.substr(start index,length);
+
+a.erase(index position);
+
+a.find(value ur looking for)  //returns the first index in the string that corresponds to this value or -1 if not found
+
+a.replace(start index,length, string2) //overwrite part of string a (replaced this portion by string2)
