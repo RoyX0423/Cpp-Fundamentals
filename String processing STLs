@@ -7,3 +7,5 @@ a.erase(index position);
 a.find(value ur looking for)  //returns the first index in the string that corresponds to this value or -1 if not found
 
 a.replace(start index,length, string2) //overwrite part of string a (replaced this portion by string2)
+
+reverse(iterator1,iterator2);  //two paramters are bidirectional iterators, so that the elements from it1 to it2 are reversed(swapping values)
